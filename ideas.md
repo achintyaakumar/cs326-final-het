@@ -1,5 +1,17 @@
-The team name: Het <br>
-The application name: 
-The first section titled Team Overview including the names of each team member and their github usernames
-The second section titled Innovative Idea which provides a brief paragraph or two describing your application and how it relates to other existing applications. If your application does not relate to an existing application then mention that.
-The third section titled Important Components which provides a brief paragraph or two explaining the functions provided by some of the components of your final projects.
+# The team name: Het 
+# The application name: Media Sense 
+# Team Overview: 
+Achintya Kumar - achintyaakumar
+Manan Patel - mananjpatel
+Jack Flynn - 
+# Idea:
+Media analysis. One thing we found very interesting is how differently the news is reported amongst media companies. For example, Fox News favors everything that Donald Trump does and paints a very likable picture of him whereas MSNBC does the exact opposite. This results in a massive polarization amongst the populace of a country which is not healthy for a democracy. 
+How news is reported differs in countries also. For example, a simple military exercise in India might be reported in Pakistani news as “India Preparing To Annex Kashmir”. While it is very difficult to filter through these headlines and get the actual news, we thought there could be a good middle ground. We can, through the use of sentiment analysis, find how different governments are represented in a certain country's media. For example, we could see how Putin is perceived in the media in USA vs. Russia vs. China. 
+With this website, we want users to search up a media company and should be able to view:
+- **A bais rating** ranging from hyper-partisan left to hyper partisan right
+- **An reliability score** ranging from -10 to 10.
+- **A list of entities/topics** which the media company talks or doesn't talk about
+- **A country option** where you can view all the above features for a country
+# Important Components: 
+**A search bar** where you can search the names of media houses or companies
+

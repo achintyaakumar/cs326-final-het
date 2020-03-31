@@ -1,4 +1,4 @@
-The team name: Het
+The team name: Het <br>
 The application name: 
 The first section titled Team Overview including the names of each team member and their github usernames
 The second section titled Innovative Idea which provides a brief paragraph or two describing your application and how it relates to other existing applications. If your application does not relate to an existing application then mention that.

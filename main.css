@@ -1,0 +1,45 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    background: -webkit-linear-gradient(to top, #080808, #474040);
+    background: linear-gradient(to top, #080808, #474040); 
+  }
+  
+  h1 {
+    font-family: 'Francois One', sans-serif;
+    font-size: 92px;
+    font-weight: bolder;
+    padding: 80px;
+    text-align: center;
+    text-transform: uppercase;
+    text-rendering: optimizeLegibility;
+    color: #f7f302;
+  }
+  
+  .field {
+    display:flex;
+    position:relative;
+    margin:5em auto;
+    width:70%;
+    flex-direction:row;
+    border-radius: 1em;
+  }
+  
+  .field>input[type=text],
+  .field>button {
+    display:block;
+    font-size: 1em;
+  }
+  
+  .field>input[type=text] {
+    flex: 1;
+    padding: 0.6em;
+    border: 0.2em solid rgb(239, 243, 7);
+  }
+  
+  .field>button {
+    padding: 0.6em 0.8em;
+    background-color: rgb(206, 241, 4);
+    color: white;
+    border: none;
+  }
+  

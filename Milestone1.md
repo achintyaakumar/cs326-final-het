@@ -5,7 +5,6 @@ With this website, we want users to search up a media company and should be able
 - **A bais rating** ranging from hyper-partisan left to hyper partisan right
 - **An reliability score** ranging from -10 to 10.
 - **A list of entities/topics** which the media company talks or doesn't talk about
-
  
 # Login Page
 - **Login functionality** where users can sign in and have their own personalized dashboard
@@ -14,6 +13,7 @@ With this website, we want users to search up a media company and should be able
 # Search Page
 - **A search bar** where you can search the names of media houses or companies
 <img width="1203" alt="Screen Shot 2020-04-09 at 12 52 22 PM" src="https://user-images.githubusercontent.com/24259854/78920164-fbe8ab80-7a60-11ea-9b18-cd07b6af5adf.png">
+
 # Watchlists
 - **Watchlists** where users can add entities of interest to be displayed on their webpage
 

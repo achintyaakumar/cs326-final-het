@@ -5,6 +5,11 @@ With this website, we want users to search up a media company and should be able
 - **A bais rating** ranging from hyper-partisan left to hyper partisan right
 - **An reliability score** ranging from -10 to 10.
 - **A list of entities/topics** which the media company talks or doesn't talk about
+
+# Screenshots:
+
+# Mockup plan:
+
  
 # Login Page
 - **Login functionality** where users can sign in or create account and have their own personalized dashboard

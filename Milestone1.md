@@ -7,7 +7,7 @@ With this website, we want users to search up a media company and should be able
 - **A list of entities/topics** which the media company talks or doesn't talk about
  
 # Login Page
-- **Login functionality** where users can sign in and have their own personalized dashboard
+- **Login functionality** where users can sign in or create account and have their own personalized dashboard
 <img width="1360" alt="Screen Shot 2020-04-09 at 12 51 07 PM" src="https://user-images.githubusercontent.com/24259854/78920053-d6f43880-7a60-11ea-8393-63643fea5a1f.png">
 
 # Search Page

@@ -11,7 +11,6 @@ With this website, we want users to search up a media company and should be able
 - **A bais rating** ranging from hyper-partisan left to hyper partisan right
 - **An reliability score** ranging from -10 to 10.
 - **A list of entities/topics** which the media company talks or doesn't talk about
-- **A country option** where you can view all the above features for a country
 # Important Components: 
 - **A search bar** where you can search the names of media houses or companies
 - **Login functionality** where users can sign in and have their own personalized dashboard

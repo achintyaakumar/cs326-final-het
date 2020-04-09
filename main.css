@@ -1,11 +1,11 @@
 body {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Helvetica';
     background: -webkit-linear-gradient(to top, #080808, #474040);
     background: linear-gradient(to top, #080808, #474040); 
   }
   
   h1 {
-    font-family: 'Francois One', sans-serif;
+    font-family: 'Helvetica', sans-serif;
     font-size: 92px;
     font-weight: bolder;
     padding: 80px;

@@ -34,6 +34,8 @@ export class Server {
         //API routes
         this.router.post('/create', this.registerHandler.bind(this));
         this.router.post('/login', this.loginHandler.bind(this));
+
+        this.router.post('/result', this.resultHandler.bind(this));
         this.router.post('/watchlist', this.watchlistHandler.bind(this));
 
 
@@ -54,8 +56,12 @@ export class Server {
         response.end();
       }
     
-    private async watchlistHandler(request: Request, response: Response) : Promise<void> {
+    private async resultHandler(request: Request, response: Response) : Promise<void> {
         await fakeData.generateMedia(request.body, response);
+      }
+
+    private async watchlistHandler(request: Request, response: Response) : Promise<void> {
+        await fakeData.generateWatchlist(request.body, response);
       }
     
 } 

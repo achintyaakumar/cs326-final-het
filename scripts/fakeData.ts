@@ -31,8 +31,19 @@ public static async generateUser(data: any, response: Response): Promise<void> {
 response.end();
 }
 
-
 public static async generateMedia(data: any, response: Response): Promise<void> {
+
+  const mediaOne = {
+    name: "Fox News",
+    biasR: "Partisan Right",
+    relRating: -3,
+  } as MediaData;
+
+  response.write(JSON.stringify( { success: true, data: [mediaOne] } ))
+  response.end();
+}
+
+public static async generateWatchlist(data: any, response: Response): Promise<void> {
 
   const mediaOne = {
     name: "Fox News",

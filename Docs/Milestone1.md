@@ -30,3 +30,6 @@ With this website, we want users to search up a media company and should be able
 ### Watchlists
 - **Watchlists** where users can add entities of interest to be displayed on their webpage
 
+<img width="1440" alt="Screen Shot 2020-04-25 at 11 51 50 AM" src="https://user-images.githubusercontent.com/24259854/80284249-61889900-86eb-11ea-8703-f03858829467.png">
+
+

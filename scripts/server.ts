@@ -1,33 +1,26 @@
-const faker = require('faker');
-const fs = require('fs')
-const express = require('express');
+let http = require('http');
+let url = require('url');
+const express = require('express')
 const app = express();
+let fakeData = require('./fakeData.js');
 
-function generateUsers() {
+export class Server {
+    private db;
 
-  let users = []
+    private server = express();
+    private port = 8080;
+    private router = express.Router()
 
-  for (let id=1; id <= 50; id++) {
-    let firstName = faker.name.firstName();
-    let lastName = faker.name.lastName();
-    let username = firstName+lastName+id;
-    let email = faker.internet.email();
-
-    users.push({
-        "username": username,
-        "first_name": firstName,
-        "last_name": lastName,
-        "email": email
-    });
-  }
-
-  return { "data": users }
-}
-
-let dataObj = generateUsers();
-
-fs.writeFileSync('data.json', JSON.stringify(dataObj, null, '\t'));
-
-app.get("/home", (req, res) => {
-    res.sendFile(__dirname + '/data.json');
- });
+    constructor(db){
+        this.db = db;
+        
+        this.router.use((request, response, next) => {
+			response.header('Content-Type','application/json');
+			response.header('Access-Control-Allow-Origin', '*');
+			response.header('Access-Control-Allow-Headers', '*');
+			next();
+        });
+        this.server.use('/', express.static('./scripts'));
+        this.server.use(express.json());
+    }
+} 

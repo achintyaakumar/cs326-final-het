@@ -18,7 +18,7 @@ interface user {
 
 export class fakeData {
 
-public generateUser(data: any, response: Response): Promise<void> {
+public static async generateUser(data: any, response: Response): Promise<void> {
   
   const user = {
   firstName : faker.name.firstName(),

@@ -57,9 +57,5 @@ export class Server {
     private async watchlistHandler(request: Request, response: Response) : Promise<void> {
         await fakeData.generateMedia(request.body, response);
       }
-
-    
-
-    
     
 } 

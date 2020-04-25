@@ -1,10 +1,10 @@
 import {Response} from "express";
+import fakeData from './fakeData';
 
 let http = require('http');
 let url = require('url');
 const express = require('express')
 const app = express();
-let fakeData = require('./fakeData.js');
 
 export class Server {
     

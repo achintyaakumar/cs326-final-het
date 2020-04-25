@@ -16,7 +16,7 @@ interface user {
   email: string,
 }
 
-export class fakeData {
+export default class fakeData {
 
 public static async generateUser(data: any, response: Response): Promise<void> {
   

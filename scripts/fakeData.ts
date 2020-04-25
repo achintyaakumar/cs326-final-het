@@ -1,3 +1,5 @@
+import {Response} from "express";
+
 const faker = require('faker');
 const fs = require('fs')
 
@@ -7,36 +9,44 @@ interface MediaData {
   relRating: number, //reliability rating
 }
 
+interface user {
+  firstName: string,
+  lastName: string,
+  username: string,
+  email: string,
+}
+
 export class fakeData {
 
-public generateUser() {
-  let firstName = faker.name.firstName();
-  let lastName = faker.name.lastName();
-  let username = firstName+lastName;
-  let email = faker.internet.email();
-  return JSON.stringify({
-    'Username' : username,
-    'First Name' : firstName,
-    'Last Name' : lastName,
-    'Email' : email
-})
+public generateUser(data: any, response: Response): Promise<void> {
+  
+  const user = {
+  firstName : faker.name.firstName(),
+  lastName : faker.name.lastName(),
+  username : faker.internet.username(),
+  email : faker.internet.email(),
+  } as user;
+  response.write(JSON.stringify({ success: true, data: [user]
+}))
+response.end();
 }
 
 
-public generateMedia() {
+public static async generateMedia(data: any, response: Response): Promise<void> {
 
-  const fakeMediaOne = {
+  const mediaOne = {
     name: "Fox News",
     biasR: "Partisan Right",
     relRating: -3,
   } as MediaData;
 
-  const fakeMediaTwo = {
-    name: "Fox News",
-    biasR: "Partisan Right",
-    relRating: -3,
+  const mediaTwo = {
+    name: "MSNBC",
+    biasR: "Partisan Left",
+    relRating: -2,
   } as MediaData;
-  return JSON.stringify({ success: true, data: [fakeMediaOne, fakeMediaTwo] })
+  response.write(JSON.stringify( { success: true, data: [mediaOne, mediaTwo] } ))
+  response.end();
 }
 }
 

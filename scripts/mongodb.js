@@ -47,10 +47,10 @@ var Database = /** @class */ (function () {
         (function () { return __awaiter(_this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.client.connect()["catch"](function (err) { console.log(err); })];
+                    case 0: return [4, this.client.connect()["catch"](function (err) { console.log(err); })];
                     case 1:
                         _a.sent();
-                        return [2 /*return*/];
+                        return [2];
                 }
             });
         }); })();
@@ -64,15 +64,16 @@ var Database = /** @class */ (function () {
                         db = this.client.db(this.dbName);
                         collection = db.collection(this.collectionName);
                         console.log("put: key = " + key + ", value = " + value);
-                        return [4 /*yield*/, collection.updateOne({ 'name': key }, { $set: { 'value': value } }, { 'upsert': true })];
+                        return [4, collection.updateOne({ 'name': key }, { $set: { 'value': value } }, { 'upsert': true })];
                     case 1:
                         result = _a.sent();
                         console.log("result = " + result);
-                        return [2 /*return*/];
+                        return [2];
                 }
             });
         });
     };
+    
     Database.prototype.get = function (key) {
         return __awaiter(this, void 0, void 0, function () {
             var db, collection, result;
@@ -95,6 +96,7 @@ var Database = /** @class */ (function () {
             });
         });
     };
+    
     Database.prototype.del = function (key) {
         return __awaiter(this, void 0, void 0, function () {
             var db, collection, result;
@@ -104,15 +106,16 @@ var Database = /** @class */ (function () {
                         db = this.client.db(this.dbName);
                         collection = db.collection(this.collectionName);
                         console.log("delete: key = " + key);
-                        return [4 /*yield*/, collection.deleteOne({ 'name': key })];
+                        return [4, collection.deleteOne({ 'name': key })];
                     case 1:
                         result = _a.sent();
                         console.log("result = " + result);
-                        return [2 /*return*/];
+                        return [2];
                 }
             });
         });
     };
+    
     Database.prototype.isFound = function (key) {
         return __awaiter(this, void 0, void 0, function () {
             var v;
@@ -120,17 +123,17 @@ var Database = /** @class */ (function () {
                 switch (_a.label) {
                     case 0:
                         console.log("isFound: key = " + key);
-                        return [4 /*yield*/, this.get(key)];
+                        return [4, this.get(key)];
                     case 1:
                         v = _a.sent();
                         console.log("is found result = " + v);
                         if (v === null) {
-                            return [2 /*return*/, false];
+                            return [2, false];
                         }
                         else {
-                            return [2 /*return*/, true];
+                            return [2, true];
                         }
-                        return [2 /*return*/];
+                        return [2];
                 }
             });
         });

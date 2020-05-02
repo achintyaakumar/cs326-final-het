@@ -42,8 +42,19 @@ var Database = /** @class */ (function () {
         this.MongoClient = require('mongodb').MongoClient;
         this.uri = process.env.uri;
         this.dbName = "cs326-final-het";
+        //
+        var secrets, password;
+        if (!process.env.PASSWORD) {
+            secrets = require('./secrets.json');
+            password = secrets.password;
+        }
+        else {
+            password = process.env.PASSWORD;
+        }
+
         this.collectionName = collectionName;
         this.client = new this.MongoClient(this.uri, { useNewUrlParser: true });
+        
         (function () { return __awaiter(_this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
@@ -55,6 +66,24 @@ var Database = /** @class */ (function () {
             });
         }); })();
     }
+    // Open up a connection to the client.
+        // The connection is asynchronous, but we can't call await directly
+        // in the constructor, which cannot be async. So, we use "IIFE". Explanation below.
+        /* from https://anthonychu.ca/post/async-await-typescript-nodejs/
+    
+          Async/Await and the Async IIFE
+    
+          The await keyword can only be used inside of a function
+          marked with the async keyword. [...] One way to do this is
+          with an "async IIFE" (immediately invoked function
+          expression)...
+    
+           (async () => {
+           // code goes here
+           })();
+    
+        */
+       //PUT function
     Database.prototype.put = function (key, value) {
         return __awaiter(this, void 0, void 0, function () {
             var db, collection, result;
@@ -63,17 +92,59 @@ var Database = /** @class */ (function () {
                     case 0:
                         db = this.client.db(this.dbName);
                         collection = db.collection(this.collectionName);
-                        console.log("put: key = " + key + ", value = " + value);
-                        return [4, collection.updateOne({ 'name': key }, { $set: { 'value': value } }, { 'upsert': true })];
+                        watch = value.category;
+                        label = value.label;
+                        insertvalue = {
+                            
+                        };
+                        console.log("\nput: key = " + key + ", label: " + label);
+                        return [4 /*yield*/, collection.updateOne({ 'key': key,
+                                'categories.0.categoryName': category,
+                                'categories.0.labels': { $elemMatch: { "labelName": label } } }, { $push: { 'categories.0.labels.$.videos': insertvalue } }, { 'upsert': true })];
                     case 1:
                         result = _a.sent();
-                        console.log("result = " + result);
-                        return [2];
+                        console.log("\nresult = " + result);
+                        return [2 /*return*/];
                 }
             });
         });
     };
+    //                     console.log("put: key = " + key + ", value = " + value);
+    //                     return [4, collection.updateOne({ 'name': key }, { $set: { 'value': value } }, { 'upsert': true })];
+    //                 case 1:
+    //                     result = _a.sent();
+    //                     console.log("result = " + result);
+    //                     return [2];
+    //             }
+    //         });
+    //     });
+    // };
     
+    Database.prototype.getAll = function (username) {
+        return __awaiter(this, void 0, void 0, function () {
+            var db, collection, result;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        db = this.client.db(this.dbName);
+                        collection = db.collection(this.collectionName);
+                        console.log("getAll: key = " + username);
+                        return [4 /*yield*/, collection.findOne({ 'email': username })];
+                    case 1:
+                        result = _a.sent();
+                        console.log("\ngetAll: returned " + JSON.stringify(result));
+                        if (result) {
+                            return [2 /*return*/, result];
+                        }
+                        else {
+                            return [2 /*return*/, null];
+                        }
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+
     Database.prototype.get = function (key) {
         return __awaiter(this, void 0, void 0, function () {
             var db, collection, result;
@@ -82,9 +153,11 @@ var Database = /** @class */ (function () {
                     case 0:
                         db = this.client.db(this.dbName);
                         collection = db.collection(this.collectionName);
-                        return [4, collection.findOne({ 'email': key })];
+                        console.log("getAll: key = " + key); // change
+                        return [4, collection.findOne({ 'name': key })];
                     case 1:
                         result = _a.sent();
+                        console.log("getAll: returned " + JSON.stringify(result)); //change
                         if (result) {
                             return [2, result.value];
                         }

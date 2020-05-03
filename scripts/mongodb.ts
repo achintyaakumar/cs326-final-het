@@ -6,9 +6,34 @@ export class Database {
 	private collectionName: string;
 	private dbName: string = "cs_326-hat";
 
-	constructor(collectionName: string) {
+	constructor(collectionName) {
 		this.collectionName = collectionName;
+		let secrets, password;
+    	if (!process.env.PASSWORD) {
+        	secrets = require('./secrets.json');
+        	password = secrets.password;
+    	} else {
+        	password = process.env.PASSWORD;
+    	}
 		this.client = new this.MongoClient(this.uri, { useNewUrlParser: true });
+		// Open up a connection to the client.
+		// The connection is asynchronous, but we can't call await directly
+		// in the constructor, which cannot be async. So, we use "IIFE". Explanation below.
+
+		/* from https://anthonychu.ca/post/async-await-typescript-nodejs/
+	
+		  Async/Await and the Async IIFE
+	
+		  The await keyword can only be used inside of a function
+		  marked with the async keyword. [...] One way to do this is
+		  with an "async IIFE" (immediately invoked function
+		  expression)...
+	
+		   (async () => {
+		   // code goes here
+		   })();
+	
+		*/
 		(async () => {
 			await this.client.connect().catch(err => { 
                 console.log(err); 
@@ -24,6 +49,21 @@ export class Database {
 		console.log("result = " + result);
 	}
 
+	public async getAll(username: string) : Promise<string> {
+		let db = this.client.db(this.dbName); 
+		let collection = db.collection(this.collectionName);
+		console.log("getAll: key = " + username);
+	
+		let result = await collection.findOne({'username' : username });
+		
+		console.log("getAll: returned " + JSON.stringify(result));
+		if (result) {
+			return result;
+		} else {
+			return null;
+		}
+	}
+	
 	public async get(key: string): Promise<string> {
 		let db = this.client.db(this.dbName);
 		let collection = db.collection(this.collectionName);
@@ -59,7 +99,7 @@ export class Database {
         await this.del(key);
 	}
 
-	public async isFound(key: string): Promise<boolean> {
+	public async isFound(key: string) : Promise<boolean>  {
 		console.log("isFound: key = " + key);
 		let v = await this.get(key);
 		console.log("is found result = " + v);

@@ -62,3 +62,14 @@ app.get('/api/getMediaData', checkSignIn, function(req, res){
     }
 
  });
+ app.post('/api/login', function(req, res){
+   
+    let user = {email:"admin",password:'admin'}
+    if(!req.body.email || !req.body.password){
+       res.send({ isError: true, message:'Please provide email and password'  });
+    } else {
+        req.session.user = user;
+        req.session.save();
+        res.send({ isError: false });
+    }
+});

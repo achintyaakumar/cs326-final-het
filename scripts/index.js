@@ -17,7 +17,7 @@ fs.readFile('./server/media.json', (err, data) => {
 
 var checkSignIn = function (req, res, next){
    if(req.session.user){
-       next();//If session exists, then it proceed to page
+       next();     //If session exists, then it proceed to page
    } else {
     res.sendFile('client/login.html', {root: __dirname }); 
     }
@@ -62,7 +62,7 @@ app.get('/api/getMediaData', checkSignIn, function(req, res){
     }
 
  });
- app.post('/api/login', function(req, res){
+app.post('/api/login', function(req, res){
    
     let user = {email:"admin",password:'admin'}
     if(!req.body.email || !req.body.password){
@@ -73,3 +73,15 @@ app.get('/api/getMediaData', checkSignIn, function(req, res){
         res.send({ isError: false });
     }
 });
+
+app.get('/logout', function(req, res){
+   req.session.destroy(function(){
+      console.log("user logged out.")
+   });
+   res.sendFile('client/login.html', {root: __dirname });
+});
+
+app.use("/", express.static(__dirname + "/client/"));
+console.log("listening on 3000");
+
+app.listen(3000);

@@ -101,6 +101,32 @@ app.get('/api/watchlist', checkSignIn, (req: any, res: any) => {
     })
 });
 
+app.post('/api/AddInwatchlist', checkSignIn, (req:any, res:any) => {
+    let name = req.body.name;
+    let foundedRecord;
+    if(name){
+        for (let i = 0; i < mediaFileData.length; i++) {
+            const element = mediaFileData[i];
+            if(name == element.name){
+                foundedRecord = element;
+                break;
+            }
+        }
+        if(!foundedRecord){
+            res.send({isError:true,message:'No wishlist found'});
+            return
+        }
+        API.addInWishlist(foundedRecord,req.session.user,function(err: any,result: any){
+            if(err) res.send({isError:true,message:err})
+            res.send({isError:false,data:result})
+        })
+        
+    }else{
+        res.send({isError:true,message:'empty media name'});
+    }
+
+       
+});
 
 app.get('/ping', function(req:any,res:any) {
     res.send("working")

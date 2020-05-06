@@ -1,4 +1,4 @@
-import Database from './mongodb';
+import Database from './database';
 
 
 var API:any = {

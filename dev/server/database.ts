@@ -1,4 +1,4 @@
-import mongodb from './mongodb';
+import mongodb from 'mongodb';
 import config from './config';
 
 var mainDb: { serverConfig: { isConnected: () => any; }; collection: (arg0: any) => any; };

@@ -128,6 +128,38 @@ app.post('/api/AddInwatchlist', checkSignIn, (req:any, res:any) => {
        
 });
 
+app.get('/getMedia', checkSignIn, (req: any, res:any ) => res.send(mediaFileData));
+
+app.post('/api/login', function(req: any, res: any){
+    let body = req.body;    
+    if(!body.email || !body.password){
+       res.send({ isError: true, message:'Please provide email and password'  });
+    } else {
+        let userCred = body;
+        API.auth(userCred,function(err: any,result: { login: any; }){
+           if(err) res.send({isError:true, data:'Authentication failed please try logging in again'});
+
+           if(result.login){
+                let user = {email:body.email,password:body.password}
+                req.session.user = user;
+                req.session.save();
+                res.send({ isError: false });
+            return
+           }else{
+            res.send({isError:true, data:'Incorrect email or password'});
+           }
+       })
+        
+    }
+});
+
+app.get('/logout', function(req:any, res:any){
+   req.session.destroy(function(){
+      console.log("user logged out.")
+   });
+   res.sendFile('client/login.html', {root: __dirname });
+});
+
 app.get('/ping', function(req:any,res:any) {
     res.send("working")
 })

@@ -1,28 +1,115 @@
 <html>
 <head>
-<link href="results.css" type="text/css" rel="stylesheet"/>
+    <script src="assets/global.js"></script>
+    <link href="assets/results.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
 
-<div id="header_wrapper">
- <div id="header">
- <li id="sitename"><a href="http://mediasense.com">Media Sense</a></li>
- </div>
-</div>
+    <div id="header_wrapper">
+        <div id="header">
+            <li id="sitename"><a href="http://mediasense.com">Media Sense</a></li>
+        </div>
+    </div>
 
-<div id="div1">
-<h1>Fox News</h1>
-<p>Bias: Partisan left</p>
-<p>Reliability score: -3</p>
-<img src="img/g1.PNG" alt="Reliability chart" width="500px" height="300px">
-<p>List on topics Fox News talks about often:</p>
-<li>Donald Trump</li>
-<li>Crooked Hillary</li>
-<p><br>List on topics Fox News doesn't talk about:</p>
-<li>Climate change</li>
-<li>Healthcare</li>
-<button id="btn1" type="button">Back to search</button>
-<button id="btn2" type="button">Add to watchlist</button>
- </div> 
+    <div id="div1">
+
+    </div>
+    <script src="jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            function renderHtmlRecordUi(data) {
+                var talks = '';
+                if (data.talks) {
+                    var talksArr = data.talks;
+                    for (let i = 0; i < talksArr.length; i++) {
+                        const element = talksArr[i];
+                        talks += '<li>' + element + '</li>';
+                    }
+                }
+
+                return `
+            <h1>${data.name}</h1>
+            <p>Bias: ${data.partisan}</p>
+            <p>Reliability score: ${data.reliability}</p>
+            <img src="g1.PNG" alt="Reliability chart" width="500px" height="300px">
+            <p>List on topics Fox News talks about often:</p>       
+            ${talks}  
+            <button id="btn1" type="button">Back to search</button>
+            <button id="btn2" mediaName="${data.name}" type="button">Add to watchlist</button>
+            `
+            }
+            function getUrlVars() {
+                var vars = [], hash;
+                var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+                for (var i = 0; i < hashes.length; i++) {
+                    hash = hashes[i].split('=');
+                    vars.push(hash[0]);
+                    vars[hash[0]] = hash[1];
+                }
+                console.log(vars);
+                
+                return vars;
+            }
+            var mediaName = getUrlVars()["newsType"];
+            mediaName = mediaName.replace(/\%20/g ," ");
+            $("#div1").html('');
+            $.ajax({
+                url:  serverUrl + "/api/getMediaData",
+                type: 'GET',
+                data: { name: mediaName },
+                dataType: 'json', // added data type
+                success: function (res) {
+                    console.log('getMediaData--', res);
+                    if (res.isError) {
+                        alert(res.message)
+                    }
+                    else {
+                        var mediaData = renderHtmlRecordUi(res.data);
+                        $("#div1").html(mediaData);
+                        $("#btn1").on('click',function () {
+                            window.location.replace('index.html');
+                        })
+                        $("#btn2").on('click',function (e) {
+                            var mediaName = $(this).attr('mediaName');
+                            addToWishlist(mediaName);                        
+                        })
+                    }
+                },
+                error: function (jqXHR, textStatus, errorthrown) {
+                    if (jqXHR.readyState == 4) {
+                        window.location.replace('/login');
+                    }
+                    alert("Something went wrong")
+                }
+            });
+        })
+
+            function addToWishlist(mediaName){
+                $.ajax({
+                url: "http://localhost:3000/api/AddInwatchlist",
+                type: 'POST',
+                data: { name: mediaName },
+                dataType: 'json', // added data type
+                success: function (res) {
+                    console.log('getMediaData--', res);
+                    if (!res.isError) {
+                        alert(res.data)   
+                        window.location.replace('/watchlist');                     
+                    }
+                    else {
+                        alert(res.message);
+                    }
+                },
+                error: function (jqXHR, textStatus, errorthrown) {
+                    if (jqXHR.readyState == 4) {
+                        window.location.replace('/login');
+                    }
+                    alert("Something went wrong")
+                }
+            });
+        }
+        // buttons clicks
+        
+    </script>
 </body>
 </html>

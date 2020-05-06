@@ -1,4 +1,5 @@
-import Database from './database';
+import Database from './mongodb';
+
 
 var API:any = {
     auth :async function(userDetails:any, callback:any){
@@ -22,6 +23,7 @@ var API:any = {
         }
         
     },
+    
     addInWishlist :async function(whishListData: any, userDetails: any, callback:any){
         let email = userDetails.email;
         let usersDB = Database.getCollection('users');
@@ -54,6 +56,49 @@ var API:any = {
             return callback('User not found');
         }
         
+    },
+
+    getWatchlist :async function (userDetails: any, callback: any){
+       
+        let usersDB = Database.getCollection('users');
+        let email = userDetails.email;
+        let searchQury = {email:email};
+        try {
+            let isFound = await usersDB.findOne(searchQury);
+            if(isFound){
+                return callback(null,isFound.watchlist);
+            }else{
+                return callback('No watchlist found');
+            }
+        } catch (error) {
+            return callback('Login failed');
+        }
+    },
+
+    signUpUser :async function(userDetails:any, callback: any){
+        if(!userDetails){
+            return callback('User details not found');
+        }
+        let firstName = userDetails.firstName;
+        let lastName = userDetails.lastName;
+        let email = userDetails.email;
+        let password = userDetails.password;
+        let usersDB = Database.getCollection('users');
+        let insertQuery = {
+            email:email,
+            password:password,
+            firstName:firstName,
+            lastName:lastName,
+            watchlist:[]
+        }
+         try {
+            let isCreated = await usersDB.insertOne(insertQuery);
+            if(isCreated){
+               return callback(null,"inserted successfully")
+            }
+        }catch(error){
+           return callback("Something went wrong. Please try again.")
+        }
     }
 };
 

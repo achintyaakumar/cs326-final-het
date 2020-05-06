@@ -1,37 +1,79 @@
 <html>
-  <head>
-    <title>
-      Media Sense
-    </title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="main.css">
-  </head>
-  <body>
-    <div class="dropdown">
-      <button class="dropbtn">Menu</button>
-      <div class="dropdown-content">
-        <a href="#">Watchlists</a>
-        <a href="#">Logout</a>
-      </div>
-    </div>
-    <h1>
-      <b>Media Sense</b>
-    </h1>
 
-    <div class="field" id="searchform">
-      <input type="text" id="searchterm" placeholder="Looking for..." />
-      <button type="button" class="btn" id="search">Search it!</button>
-    </div>
+<head>
+  <title>
+    Media Sense
+  </title>
+  <script src="assets/global.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+    integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="assets/main.css">
+</head>
 
-    <div class="card" id="mentions-container" style="display: none;">
-      <svg id="mentions-graph">
-      </svg>
+<body>
+  <div class="dropdown">
+    <button class="dropbtn">Menu</button>
+    <div class="dropdown-content">
+      <a href="/watchlist.html">Watchlists</a>
+      <a href="/logout">Logout</a>
     </div>
+  </div>
+  <h1>
+    <b>Media Sense</b>
+  </h1>
 
-    <div class="card" id="sentiments-container" style="display: none;">
-      <svg id="sentiments-graph">
-      </svg>
-    </div>
+  <div class="field" id="searchform">
+    <input type="text" id="searchterm" placeholder="Looking for..." />
+    <!-- <button type="button" class="btn" id="search">Search it!</button> -->
+    
+  </div>
+  <ul id="result" style="padding: 25px;width: 70%; margin: auto;">
 
-  </body>
+  </ul>
+  <div class="card" id="mentions-container" style="display: none;">
+    <svg id="mentions-graph">
+    </svg>
+  </div>
+
+  <div class="card" id="sentiments-container" style="display: none;">
+    <svg id="sentiments-graph">
+    </svg>
+  </div>
+  <script src="jquery.min.js"></script>
+  <script>
+    $(document).ready(function () {
+
+      $('#searchterm').keyup(function () {
+        $('#result').html('');
+        var searchField = $('#searchterm').val();
+        var expression = new RegExp(searchField, "i");
+        $.ajax({
+          url: serverUrl + "/getMedia",
+          type: 'GET',
+          data: { search: searchField },
+          dataType: 'json', // added data type
+          success: function (res) {
+            console.log(res);
+
+            var data = res;
+            $.each(data, function (key, value) {
+              if (value.name.search(expression) != -1) {
+                $('#result').append('<li class="list-group-item link-class"><a href="results.html?newsType='+value.name+'">' + value.name + '</a></li>');
+              }
+            });
+          },
+          error: function (jqXHR, textStatus, errorthrown) {
+              if (jqXHR.readyState == 4) {
+                  window.location.replace('/login');
+              }
+              alert("Something went wrong")
+          }
+        });
+
+      });
+
+    })
+  </script>
+</body>
+
 </html>

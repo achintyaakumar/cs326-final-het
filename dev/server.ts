@@ -8,6 +8,7 @@ import session from 'express-session';
 import cookieParser from 'cookie-parser';
 import fs from 'fs';
 import Database from './server/mongodb';
+import path from 'path';
 import API from './server/api';
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -59,7 +60,7 @@ var checkSignInFrontEnd = function (req:any,res:any, next:any){
 
 // @ts-ignore
 app.use(session({
-  secret: "reallystrongpassword",
+  secret: "reallystrongestpassword",
   resave: false,
   saveUninitialized: true,
   cookie: { secure: false }
@@ -88,6 +89,18 @@ app.post('/api/signup', (req:any , res:any) => {
         res.send({isError:true,data:"Email, password, lastName, firstName are mendatory"})
     }
 })
+app.get('/home', checkSignIn,(req:any, res:any) => res.redirect('index.html'));
+app.get('/', checkSignInFrontEnd , (req: any, res: { redirect: (arg0: string) => any; }) => res.redirect('index.html'));
+app.get('/watchlist', checkSignIn , (req: any, res: any) => res.redirect('watchlist.html'));
+app.get('/api/watchlist', checkSignIn, (req: any, res: any) => {
+    let userDetails = req.session.user;
+    API.getWatchlist(userDetails,function(err: any,result: any){
+        console.log("wachlist",result);        
+        if(err) res.send({isError:true,message:err})
+        res.send({isError:false,data:result})
+    })
+});
+
 
 app.get('/ping', function(req:any,res:any) {
     res.send("working")

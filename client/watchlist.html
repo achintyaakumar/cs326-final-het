@@ -1,27 +1,79 @@
 <html>
+
 <head>
-<link href="Watchlist.css" type="text/css" rel="stylesheet"/>
+    <script src="assets/global.js"></script>
+    <link href="assets/Watchlist.css" type="text/css" rel="stylesheet" />
 </head>
+
 <body>
 
-<div id="header_wrapper">
- <div id="header">
- <li id="sitename"><a href="http://mediasense.com">Media Sense</a></li>
- </div>
-</div>
+    <div id="header_wrapper">
+        <div id="header">
+            <li id="sitename"><a href="http://mediasense.com">Media Sense</a></li>
+        </div>
+    </div>
 
-<div id="div1">
-<h1>Your Watchlist</h1>
-<p>Watched:</p>
-<li><a href= "http://mediasense.com/BBC">BBC</a></li>
-<li><a href= "http://mediasense.com/FOX">FOX</a></li>
-<p><br>You May Like:</p>
-<li><a href= "http://mediasense.com/ESPN">ESPN</a></li>
-<li><a href= "http://mediasense.com/The_Daily_Dot">The Daily Dot</a></li>
-<div id="div2">
-<button id="btn1" type="button">Back to search</button>
-<button id="btn2" type="button">Log Out of MS</button>
-</div>
- </div> 
+    <div id="div1">
+        <h1>Your Watchlist</h1>
+        <p>Watched:</p>
+        <div class="wachlist">
+
+        </div>
+        <p><br>You May Like:</p>
+        <li><a href="http://mediasense.com/ESPN">ESPN</a></li>
+        <li><a href="http://mediasense.com/The_Daily_Dot">The Daily Dot</a></li>
+        <div id="div2">
+            <button id="btn1" type="button">Back to search</button>
+            <button id="btn2" type="button">Log Out of MS</button>
+        </div>
+    </div>
+    <script src="jquery.min.js"></script>
+    <script>
+        $("#btn2").click(function(){
+            window.location.replace('/logout');
+        })
+        $("#btn1").on('click',function () {
+            window.location.replace('index.html');
+        })
+        $("#wachlist").html('');
+        $.ajax({
+                url: serverUrl + "/api/watchlist",
+                type: 'GET',
+                data: {},
+                dataType: 'json', // added data type
+                success: function(res) {
+                    console.log(res);
+                    if(!res.isError) {
+                        var wachlist = renderHtml(res.data);
+                        $(".wachlist").html(wachlist);
+                    } 
+                    else {
+                        alert(res.data);
+                        
+                    } 
+                },
+                error: function(jqXHR, textStatus, errorthrown) {
+                    if (jqXHR.readyState == 4) {
+                        window.location.replace('/login');
+                    }
+                    alert("login failed please check username and password")
+                }
+            });
+
+            function renderHtml(wachlist){
+                var wachlistArr = wachlist?wachlist:[];
+                wachlistStr = '';
+                for (let i = 0; i < wachlistArr.length; i++) {
+                    const element = wachlistArr[i];  
+                    wachlistStr += '<li><a href="http://mediasense.com/'+element.name+'">'+element.name+'</a></li>';                     
+                }
+                return wachlistStr;
+            }
+
+
+
+       
+    </script>
 </body>
+
 </html>

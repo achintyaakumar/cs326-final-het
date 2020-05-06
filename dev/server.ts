@@ -130,6 +130,27 @@ app.post('/api/AddInwatchlist', checkSignIn, (req:any, res:any) => {
 
 app.get('/getMedia', checkSignIn, (req: any, res:any ) => res.send(mediaFileData));
 
+app.get('/api/getMediaData', checkSignIn, function(req: { query: any; }, res: { send: (arg0: { isError: boolean; message?: string; data?: any; }) => void; }){  
+    let reqData = req.query;
+    let name = reqData.name;
+    let foundedRecord;
+    if(name){
+        for (let i = 0; i < mediaFileData.length; i++) {
+            const element = mediaFileData[i];
+            if(name == element.name){
+                foundedRecord = element;
+                break;
+            }
+        }
+        if(!foundedRecord){
+            res.send({isError:true,message:'No record found'});
+            return
+        }
+        res.send({isError:false,data:foundedRecord});
+    }else{
+    }
+});
+
 app.post('/api/login', function(req: any, res: any){
     let body = req.body;    
     if(!body.email || !body.password){

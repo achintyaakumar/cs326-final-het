@@ -1,7 +1,4 @@
-
 import express from 'express';
-let http = require('http');
-let url = require('url');
 const app = express();
 import bodyParser from 'body-parser';
 import session from 'express-session';
@@ -70,6 +67,12 @@ app.get('/login',  (req, res) => {
     res.sendFile(path.resolve('./client/login.html'))
 });
 
+app.get('/api/logout', function(req:any, res:any){
+    req.session.destroy(function(){
+       res.send({ isError: false })
+    });
+ });
+
 app.post('/api/signup', (req:any , res:any) => {
     let userDetails = req.body;
     let firstName = userDetails.firstName;
@@ -100,7 +103,6 @@ app.get('/api/watchlist', checkSignIn, (req: any, res: any) => {
         res.send({isError:false,data:result})
     })
 });
-
 app.post('/api/AddInwatchlist', checkSignIn, (req:any, res:any) => {
     let name = req.body.name;
     let foundedRecord;
@@ -129,7 +131,6 @@ app.post('/api/AddInwatchlist', checkSignIn, (req:any, res:any) => {
 });
 
 app.get('/getMedia', checkSignIn, (req: any, res:any ) => res.send(mediaFileData));
-
 app.get('/api/getMediaData', checkSignIn, function(req: { query: any; }, res: { send: (arg0: { isError: boolean; message?: string; data?: any; }) => void; }){  
     let reqData = req.query;
     let name = reqData.name;
@@ -150,7 +151,6 @@ app.get('/api/getMediaData', checkSignIn, function(req: { query: any; }, res: { 
     }else{
     }
 });
-
 app.post('/api/login', function(req: any, res: any){
     let body = req.body;    
     if(!body.email || !body.password){
@@ -174,12 +174,6 @@ app.post('/api/login', function(req: any, res: any){
     }
 });
 
-app.get('/logout', function(req:any, res:any){
-   req.session.destroy(function(){
-      console.log("user logged out.")
-   });
-   res.sendFile('client/login.html', {root: __dirname });
-});
 
 app.get('/ping', function(req:any,res:any) {
     res.send("working")
@@ -187,6 +181,7 @@ app.get('/ping', function(req:any,res:any) {
 
 app.use("/", express.static(__dirname + "./../client/"));
 let port = process.env.PORT || 3000;
+// let port = 3000;
 app.listen(port, ()=> console.log(`app working at ${port}`));
 
 process

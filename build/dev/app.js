@@ -4,8 +4,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var express_1 = __importDefault(require("express"));
-var http = require('http');
-var url = require('url');
 var app = express_1.default();
 var body_parser_1 = __importDefault(require("body-parser"));
 var express_session_1 = __importDefault(require("express-session"));
@@ -71,6 +69,11 @@ app.use(express_session_1.default({
 }));
 app.get('/login', function (req, res) {
     res.sendFile(path_1.default.resolve('./client/login.html'));
+});
+app.get('/api/logout', function (req, res) {
+    req.session.destroy(function () {
+        res.send({ isError: false });
+    });
 });
 app.post('/api/signup', function (req, res) {
     var userDetails = req.body;
@@ -174,17 +177,12 @@ app.post('/api/login', function (req, res) {
         });
     }
 });
-app.get('/logout', function (req, res) {
-    req.session.destroy(function () {
-        console.log("user logged out.");
-    });
-    res.sendFile('client/login.html', { root: __dirname });
-});
 app.get('/ping', function (req, res) {
     res.send("working");
 });
 app.use("/", express_1.default.static(__dirname + "./../client/"));
 var port = process.env.PORT || 3000;
+// let port = 3000;
 app.listen(port, function () { return console.log("app working at " + port); });
 process
     .on('unhandledRejection', function (reason, p) {

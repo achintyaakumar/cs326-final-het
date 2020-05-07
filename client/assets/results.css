@@ -56,12 +56,18 @@ body, #header_wrapper {
 
 #div1 h1 {
   color: white;
+  font-family: monospace;
+  margin: 5em auto;
 }
 #div1 p {
   color: white;
+  font-family: monospace;
+  margin: 1em auto;
 }
 #div1 li {
   color: white;
+  font-family: monospace;
+  margin: 1em auto;;
 }
 #div1 #btn1, #btn2{
   display: inline-block;

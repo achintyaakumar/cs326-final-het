@@ -15,7 +15,7 @@
     <button class="dropbtn">Menu</button>
     <div class="dropdown-content">
       <a href="/watchlist.html">Watchlists</a>
-      <a href="/logout">Logout</a>
+      <a class="logoutUser">Logout</a>
     </div>
   </div>
   <h1>
@@ -72,6 +72,26 @@
 
       });
 
+
+      $(".logoutUser").click(function() {
+        $.ajax({
+          url: serverUrl + "/api/logout",
+          type: 'GET',
+          dataType: 'json', // added data type
+          success: function (res) {
+            if(!res.isError) {
+              alert("successfully logged out")
+              window.location.replace("/login")
+            }
+            else alert("something went wrong")  
+          },
+          error: function (jqXHR, textStatus, errorthrown) {
+            alert("something went wrong")  
+          }
+        });
+
+
+      })
     })
   </script>
 </body>

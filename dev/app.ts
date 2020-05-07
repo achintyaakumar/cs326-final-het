@@ -7,7 +7,7 @@ import bodyParser from 'body-parser';
 import session from 'express-session';
 import cookieParser from 'cookie-parser';
 import fs from 'fs';
-import Database from './server/mongodb';
+import Database from './server/database';
 import path from 'path';
 import API from './server/api';
 app.use(bodyParser.json());

@@ -1,10 +1,7 @@
-var config = module.exports
-
-config.express = {
-  port: 3000,
-  ip: '127.0.0.1'
-}
-
-config.mongodb = {
-  url:'',
-}
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+;
+var config = {
+    mongodbUrl: "mongodb://root:root123@ds019916.mlab.com:19916/heroku_mrf1zf97"
+};
+exports.default = config;

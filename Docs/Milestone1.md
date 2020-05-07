@@ -27,6 +27,9 @@ With this website, we want users to search up a media company and should be able
 - **A search bar** where you can search the names of media houses or companies
 <img width="1203" alt="Screen Shot 2020-04-09 at 12 52 22 PM" src="https://user-images.githubusercontent.com/24259854/78920164-fbe8ab80-7a60-11ea-9b18-cd07b6af5adf.png">
 
+### Result Page
+<img width="1438" alt="Screen Shot 2020-05-06 at 9 57 10 PM" src="https://user-images.githubusercontent.com/24259854/81246144-d1006180-8fe4-11ea-94d5-98b69e363708.png">
+
 ### Watchlists
 - **Watchlists** where users can add entities of interest to be displayed on their webpage
 

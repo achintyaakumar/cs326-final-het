@@ -21,7 +21,7 @@ With this website, we want users to search up a media company and should be able
 <img width="1007" alt="Screen Shot 2020-05-07 at 3 01 43 PM" src="https://user-images.githubusercontent.com/24259854/81334292-d5c02680-9073-11ea-9c02-0437b1681451.png">
 
 ### WatchList Page
-
+<img width="1006" alt="Screen Shot 2020-05-07 at 3 01 57 PM" src="https://user-images.githubusercontent.com/24259854/81334454-11f38700-9074-11ea-9ed7-eaa512d794ab.png">
 
 ## HTML Screenshots:
 

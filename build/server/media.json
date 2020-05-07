@@ -1,0 +1,397 @@
+[
+    {
+      "name": "ABC",
+      "partisan": "-1.85",
+      "reliability": "0.76",
+      "talks": [
+        "United States",
+        "NFL"
+      ]
+    },
+    {
+      "name": "Al Jazeera",
+      "partisan": "-3.71",
+      "reliability": "0.76",
+      "talks": [
+        "United States",
+        "EU"
+      ]
+    },
+    {
+      "name": "Alternet",
+      "partisan": "-19.16",
+      "reliability": "0.32",
+      "talks": [
+        "Trump",
+        "Republican"
+      ]
+    },
+    {
+      "name": "The American Spectator",
+      "partisan": "28.89",
+      "reliability": "0.34",
+      "talks": [
+        "Billionaires",
+        "FED"
+      ]
+    },
+    {
+      "name": "AP",
+      "partisan": "-1.06",
+      "reliability": "0.8125",
+      "talks": [
+        "Coronavirus",
+        "China"
+      ]
+    },
+    {
+      "name": "Axios",
+      "partisan": "-5.74",
+      "reliability": "0.74",
+      "talks": [
+        "Bitcoin",
+        "Immigration"
+      ]
+    },
+    {
+      "name": "BBC",
+      "partisan": "-3.03",
+      "reliability": "0.72",
+      "talks": [
+        "Coronavirus",
+        "EU"
+      ]
+    },
+    {
+      "name": "Bloomberg",
+      "partisan": "-0.82",
+      "reliability": "0.72",
+      "talks": [
+        "DOW",
+        "United States"
+      ]
+    },
+    {
+      "name": "Business Insider",
+      "partisan": "-0.38",
+      "reliability": "0.70",
+      "talks": [
+        "New York",
+        "Tesla"
+      ]
+    },
+    {
+      "name": "Buzzfeed",
+      "partisan": "-7.06",
+      "reliability": "0.67",
+      "talks": [
+        "China",
+        "Instagram"
+      ]
+    },
+    {
+      "name": "CBS",
+      "partisan": "-1.85",
+      "reliability": "0.72",
+      "talks": [
+        "Slowdown"
+      ]
+    },
+    {
+      "name": "Chicago Tribune",
+      "partisan": "1.45",
+      "reliability": "0.71",
+      "talks": [
+        "Impeachment",
+        "Lockdown"
+      ]
+    },
+    {
+      "name": "Christianity Today",
+      "partisan": "-7.4",
+      "reliability": "0.63",
+      "talks": [
+        "Church",
+        "Jesus"
+      ]
+    },
+    {
+      "name": "CNBC",
+      "partisan": "-1.50",
+      "reliability": "0.70",
+      "talks": [
+        "China",
+        "Aramco"
+      ]
+    },
+    {
+      "name": "CNN",
+      "partisan": "-5.69",
+      "reliability": "0.68",
+      "talks": [
+        "Elizabeth Warren",
+        "Poopy Harlow"
+      ]
+    },
+    {
+      "name": "Conservative Review",
+      "partisan": "25.30",
+      "reliability": "0.32",
+      "talks": [
+        "Gun",
+        "Weapons"
+      ]
+    },
+    {
+      "name": "Daily Mail",
+      "partisan": "3.27",
+      "reliability": "0.48",
+      "talks": [
+        "Facebook",
+        "Micheal Cohen"
+      ]
+    },
+    {
+      "name": "Daily Wire",
+      "partisan": "16.35",
+      "reliability": "0.34",
+      "talks": [
+        "Kamala Harris",
+        "Ryan"
+      ]
+    },
+    {
+      "name": "Financial Times",
+      "partisan": "0.62",
+      "reliability": "0.75",
+      "talks": [
+        "Markets",
+        "China"
+      ]
+    },
+    {
+      "name": "Fiscal Times",
+      "partisan": "1.52",
+      "reliability": "0.74",
+      "talks": [
+        "GDP",
+        "Medicare"
+      ]
+    },
+    {
+      "name": "Forbes",
+      "partisan": "0.20",
+      "reliability": "0.68",
+      "talks": [
+        "Security",
+        "Boeing"
+      ]
+    },
+    {
+      "name": "Fox News",
+      "partisan": "24.56",
+      "reliability": "0.51",
+      "talks": [
+        "White house",
+        "Pelosi"
+      ]
+    },
+    {
+      "name": "Huffington Post",
+      "partisan": "-11.54",
+      "reliability": "0.58",
+      "talks": [
+        "Micheal Cohen",
+        "Racist"
+      ]
+    },
+    {
+      "name": "Marketwatch",
+      "partisan": "-0.54",
+      "reliability": "0.75",
+      "talks": [
+        "Microsoft",
+        "Zoom"
+      ]
+    },
+    {
+      "name": "MSNBC",
+      "partisan": "-20.87",
+      "reliability": "0.48",
+      "talks": [
+        "AOC",
+        "Stephanie Ruhle"
+      ]
+    },
+    {
+      "name": "NBC",
+      "partisan": "-6.11",
+      "reliability": "0.73",
+      "talks": [
+        "Democrats",
+        "Senate"
+      ]
+    },
+    {
+      "name": "New York Daily News",
+      "partisan": "-3.69",
+      "reliability": "0.77",
+      "talks": [
+        "Mike Pence",
+        "Coronavirus"
+      ]
+    },
+    {
+      "name": "New York Post",
+      "partisan": "5.15",
+      "reliability": "0.58",
+      "talks": [
+        "Police",
+        "FED"
+      ]
+    },
+    {
+      "name": "New York Times",
+      "partisan": "-4.01",
+      "reliability": "0.71",
+      "talks": [
+        "Robert Kraft",
+        "Saudi Arabia"
+      ]
+    },
+    {
+      "name": "PBS",
+      "partisan": "-2.37",
+      "reliability": "0.72",
+      "talks": [
+        "Health",
+        "Roundup"
+      ]
+    },
+    {
+      "name": "Politico",
+      "partisan": "-5.25",
+      "reliability": "0.75",
+      "talks": [
+        "Politico",
+        "Summit"
+      ]
+    },
+    {
+      "name": "Quartz",
+      "partisan": "-3.89",
+      "reliability": "0.67",
+      "talks": [
+        "Corporate",
+        "Apple"
+      ]
+    },
+    {
+      "name": "Reuters",
+      "partisan": "-0.95",
+      "reliability": "0.81",
+      "talks": [
+        "India",
+        "China"
+      ]
+    },
+    {
+      "name": "The Atlantic",
+      "partisan": "-6.41",
+      "reliability": "0.65",
+      "talks": [
+        "Democracy",
+        "Federal"
+      ]
+    },
+    {
+      "name": "The Economist",
+      "partisan": "-2.43",
+      "reliability": "0.72",
+      "talks": [
+        "Economics",
+        "Immigration"
+      ]
+    },
+    {
+      "name": "The Guardian",
+      "partisan": "-6.45",
+      "reliability": "0.78",
+      "talks": [
+        "Russia",
+        "California"
+      ]
+    },
+    {
+      "name": "The New Yorker",
+      "partisan": "-6.90",
+      "reliability": "0.72",
+      "talks": [
+        "Brexit",
+        "Israel"
+      ]
+    },
+    {
+      "name": "Time",
+      "partisan": "-4.35",
+      "reliability": "0.72",
+      "talks": [
+        "North Korea",
+        "Iran"
+      ]
+    },
+    {
+      "name": "USA Today",
+      "partisan": "-2.03",
+      "reliability": "0.77",
+      "talks": [
+        "Florida",
+        "Pete Buttigieg"
+      ]
+    },
+    {
+      "name": "Vice",
+      "partisan": "-10.72",
+      "reliability": "0.56",
+      "talks": [
+        "Fox",
+        "Emergency"
+      ]
+    },
+    {
+      "name": "Vox",
+      "partisan": "-8.75",
+      "reliability": "0.73",
+      "talks": [
+        "Sanders",
+        "Lockdown"
+      ]
+    },
+    {
+      "name": "Wall Street Journal",
+      "partisan": "1.89",
+      "reliability": "0.79",
+      "talks": [
+        "Patriots",
+        "Robinhood"
+      ]
+    },
+    {
+      "name": "Washington Post",
+      "partisan": "-4.18",
+      "reliability": "0.74",
+      "talks": [
+        "Europe",
+        "Facebook"
+      ]
+    },
+    {
+      "name": "Washington Times",
+      "partisan": "5.15",
+      "reliability": "0.58",
+      "talks": [
+        "Nancy Pelosi",
+        "Hillary Clinton"
+      ]
+    }
+  ]

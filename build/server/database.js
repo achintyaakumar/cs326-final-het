@@ -91,15 +91,3 @@ var Database = {
     }
 };
 exports.default = Database;
-
-    //                     console.log("put: key = " + key + ", value = " + value);
-    //                     return [4, collection.updateOne({ 'name': key }, { $set: { 'value': value } }, { 'upsert': true })];
-    //                 case 1:
-    //                     result = _a.sent();
-    //                     console.log("result = " + result);
-    //                     return [2];
-    //             }
-    //         });
-    //     });
-    // };
-    

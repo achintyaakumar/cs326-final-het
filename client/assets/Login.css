@@ -4,7 +4,7 @@ body
  width:100%;
  margin:0 auto;
  padding:0px;
- font-family:'Helvetica';
+ font-family:monospace;
  
 }
 body, #header_wrapper {
@@ -28,7 +28,7 @@ body, #header_wrapper {
  list-style-type:none;
  float:left;
  text-align:left;
- color:#f7f302;
+ color:#49beb7;
 }
 #header #sitename
 {
@@ -36,7 +36,7 @@ body, #header_wrapper {
 }
 #header #sitename a
 {
- color:#f7f302;
+ color:#49beb7;
  text-decoration:none;
  font-size:30px;
  font-weight:900;
@@ -58,7 +58,7 @@ body, #header_wrapper {
  width:150px;
  height:30px;
  padding-left:1px;
- border-radius: 90px;
+ border-radius: 10px;
 }
 #header form input[type="password"]
 {
@@ -67,15 +67,15 @@ body, #header_wrapper {
  width:150px;
  height:30px;
  padding-left:1px;
- border-radius: 90px;
+ border-radius: 10px;
 }
 #header form input[type="submit"]
 {
  height:30px;
  margin-top:20px;
- background-color:#f7f302;
+ background-color:#49beb7;
  color:black;
- border-radius: 90px;
+ border-radius: 10px;
 }
 #wrapper
 {
@@ -86,14 +86,16 @@ body, #header_wrapper {
 }
 #wrapper div
 {
- font-family: helvetica;
+ font-family: monospace;
 }
 #wrapper #div1
 {
  margin-top:30px;
  margin-right: 40px;
- width:980px;
+ height: 100px;
+ width:880px;
  text-align:center;
+ font-size: 100px;
 }
 #wrapper #div1
 {
@@ -109,7 +111,7 @@ body, #header_wrapper {
 #wrapper #div1 h1
 {
  margin-top: 50px;
- font-size:28px;
+ font-size:30px;
  color:rgb(250, 249, 249);
 }
 #wrapper #div1 p

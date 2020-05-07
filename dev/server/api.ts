@@ -24,6 +24,8 @@ var API:any = {
         
     },
     
+
+    
     addInWishlist :async function(whishListData: any, userDetails: any, callback:any){
         let email = userDetails.email;
         let usersDB = Database.getCollection('users');

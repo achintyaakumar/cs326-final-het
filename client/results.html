@@ -10,7 +10,7 @@
             <li id="sitename"><a href="https://cs326-final-het.herokuapp.com/index.html">Media Sense</a></li>
         </div>
     </div>
-    <img src = 'assets/newlogo copy.png'>
+    <img src = 'assets/newlogo copy.png' class="logo" alt="logo">
     <div id="div1">
 
     </div>
@@ -31,7 +31,7 @@
             <h1>${data.name}</h1>
             <p>Bias: ${data.partisan}</p>
             <p>Reliability score: ${data.reliability}</p>
-            <p>List on topics Fox News talks about often:</p>       
+            <p>List on topics they talk about often:</p>       
             ${talks}  
             <button id="btn1" type="button">Back to search</button>
             <button id="btn2" mediaName="${data.name}" type="button">Add to watchlist</button>

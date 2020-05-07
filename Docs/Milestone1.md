@@ -17,6 +17,11 @@ With this website, we want users to search up a media company and should be able
 ### Search Page 
 <img width="1157" alt="Screen Shot 2020-04-09 at 1 20 22 PM" src="https://user-images.githubusercontent.com/24259854/78923221-dd38e380-7a65-11ea-9470-c6189290a97c.png">
 
+### Result Page 
+<img width="1007" alt="Screen Shot 2020-05-07 at 3 01 43 PM" src="https://user-images.githubusercontent.com/24259854/81334292-d5c02680-9073-11ea-9c02-0437b1681451.png">
+
+### WatchList Page
+
 
 ## HTML Screenshots:
 

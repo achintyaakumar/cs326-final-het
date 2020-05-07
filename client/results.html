@@ -86,7 +86,7 @@
 
             function addToWishlist(mediaName){
                 $.ajax({
-                url: "http://localhost:3000/api/AddInwatchlist",
+                url: serverUrl + "/api/AddInwatchlist",
                 type: 'POST',
                 data: { name: mediaName },
                 dataType: 'json', // added data type

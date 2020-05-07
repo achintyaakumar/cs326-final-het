@@ -1,1 +1,1 @@
-var serverUrl = "https://cs326-final-het.herokuapp.com/login"; //add heroku link here
+var serverUrl = "https://cs326-final-het.herokuapp.com"; //add heroku link here

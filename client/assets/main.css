@@ -25,7 +25,8 @@ body {
   .field {
     display:flex;
     position:relative;
-    margin:5em auto;
+    margin-top: 5em;
+    margin-left: 15em;
     width:70%;
     flex-direction:row;
     border-radius: 1em;

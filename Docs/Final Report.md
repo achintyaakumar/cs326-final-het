@@ -16,21 +16,23 @@ Jack Flynn - Senior
 
 login: logs user into Media Sense and also has a signup form
 
-![image-20200508023357203](C:\Users\John Flynn\AppData\Roaming\Typora\typora-user-images\image-20200508023357203.png)
+![image-20200508023357203](https://user-images.githubusercontent.com/47226319/81391551-47878700-90eb-11ea-84ee-9b92d5802dbf.png)
 
 search: allows user to browse entities on Media Sense
 
-![image-20200508023518109](C:\Users\John Flynn\AppData\Roaming\Typora\typora-user-images\image-20200508023518109.png)
+![image-20200508023518109](https://user-images.githubusercontent.com/47226319/81391590-5a9a5700-90eb-11ea-9d03-0b7f0e732f88.png)
+
 
 
 
 results: displays scores and topics of an entity
 
-![image-20200508023554946](C:\Users\John Flynn\AppData\Roaming\Typora\typora-user-images\image-20200508023554946.png)
+![image-20200508023554946](https://user-images.githubusercontent.com/47226319/81391647-6e45bd80-90eb-11ea-98a8-a559bcfcd041.png)
 
 watchlist: displays watched entities selected on the results page of an entity
 
-![image-20200508023631925](C:\Users\John Flynn\AppData\Roaming\Typora\typora-user-images\image-20200508023631925.png)
+![image-20200508023631925](https://user-images.githubusercontent.com/47226319/81391674-7867bc00-90eb-11ea-8878-d47f53b0a0c6.png)
+
 
 ### API:
 

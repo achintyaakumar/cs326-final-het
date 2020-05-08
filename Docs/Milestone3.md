@@ -1,4 +1,4 @@
-# Group Het, CS 326, UMass Amherst, Website: Media Sense 
+# Group Het, CS 326, Website: Media Sense 
 ## Backend Implementation - From Milestone 3:
 ### Database Documentation
 

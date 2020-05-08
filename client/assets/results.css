@@ -4,7 +4,7 @@ body
  width:100%;
  margin:0 auto;
  padding:0px;
- font-family:'Helvetica';
+ font-family:'monospace';
  
 }
 body, #header_wrapper {
@@ -15,11 +15,12 @@ body, #header_wrapper {
 {
  width:100%;
  min-width:980px;
+ padding-bottom: 5px;
 }
 #header
 {
  width:980px;
- margin:0px auto;
+ margin:auto;
  padding:0px;
  height:45px;
 }
@@ -38,6 +39,8 @@ body, #header_wrapper {
  text-decoration:none;
  font-size:30px;
  font-weight:900;
+ margin-left: auto;
+ margin-right: auto;
 }
 #header form
 {
@@ -93,4 +96,6 @@ body, #header_wrapper {
 
 .logo {
   margin-top: 3em auto;
+  margin-left: auto;
+  margin-right: auto;
 }

@@ -5,6 +5,17 @@
 
 ## API
 
+/api/login - posts login information
+
+/api/signup - posts signup information
+
+/api/AddInwatchlist - posts new watchlist acquisition for a user
+
+/api/watchlist - gets the watchlist based on user details
+
+/api/logout - gets log out procedure
+
+/api/getMediaData - gets media data (scores)
 
 ## Heroku URL
 

@@ -3,13 +3,13 @@
 <img width="970" alt="Screen Shot 2020-04-25 at 11 47 53 AM" src="https://user-images.githubusercontent.com/24259854/80284149-a7912d00-86ea-11ea-9c66-fcc602ecfffb.png">
 
 
-### API
+## API
 
-### Heroku URL
+## Heroku URL
 
 https://cs326-final-het.herokuapp.com/login
 
-### Client Interface Screenshots
+## Client Interface Screenshots
 
 <img width="436" alt="Screen Shot 2020-05-08 at 2 35 36 AM" src="https://user-images.githubusercontent.com/24259854/81378467-595e2f80-90d5-11ea-94a8-e7c99c42d2d5.png">
 

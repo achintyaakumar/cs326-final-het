@@ -60,9 +60,8 @@ body, #header_wrapper {
   text-align:center;
   margin:0 auto;
   margin-top: 30px;
-  width:980px;
+  width:75%;
   padding:0px;
-  width:980px;
   position: relative;
   font-size: 50px;
   font-family: monospace !important;
@@ -71,9 +70,10 @@ body, #header_wrapper {
   color: white;
   text-align:left;
   font-size: 40px;
-  padding-left:200px;
-  margin-left:90px;
+  
+  margin-left:290px;
   margin-top: 30px;
+  width:75%;
   position: relative;
   text-shadow: 2px 2px #49beb7;
 }
